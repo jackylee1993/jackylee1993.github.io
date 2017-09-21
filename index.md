@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+## 个人信息
 
-You can use the [editor on GitHub](https://github.com/jackylee1993/jackylee1993.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+李家琦
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+社会计算与信息检索研究中心
 
-### Markdown
+哈尔滨工业大学计算机科学与技术学院
+#### 研究方向： 篇章结构分析
+####导师：秦兵 教授
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 教育背景
 
-```markdown
-Syntax highlighted code block
+2015.9 至今      哈尔滨工业大学 计算机科学与技术专业 硕博连读
 
-# Header 1
-## Header 2
-### Header 3
+2011.9-2015.6  黑龙江大学 计算机科学与技术专业 学士
 
-- Bulleted
-- List
+## 经历
 
-1. Numbered
-2. List
+软件学院研究生信息检索课程 助教
 
-**Bold** and _Italic_ and `Code` text
+哈工大官方微信公众号影像部负责人 
 
-[Link](url) and ![Image](src)
-```
+社会计算与信息检索研究中心 文本挖掘组 副组长
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jackylee1993/jackylee1993.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+社会计算与信息检索研究中心 阅读理解组 组长助理
