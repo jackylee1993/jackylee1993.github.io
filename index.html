@@ -62,16 +62,10 @@
         .photo {
             width: 180px;
             height: 220px;
-            background: linear-gradient(145deg, #3a3a5c, #2a2a4a);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.4);
-            font-size: 14px;
+            object-fit: cover;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             position: relative;
-            overflow: hidden;
         }
 
         .photo::before {
@@ -406,7 +400,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="photo-wrapper">
-                    <div class="photo">Photo</div>
+                    <img src="jqli.jpg" alt="Jiaqi Li" class="photo">
                 </div>
                 <div class="hero-info">
                     <h1>Jiaqi Li</h1>
