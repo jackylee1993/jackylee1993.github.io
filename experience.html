@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Jiaqi Li</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #c9a227;
+            --accent-light: #e8c547;
+            --text: #2d2d2d;
+            --text-light: #5a5a5a;
+            --text-muted: #888;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --border: #e8e8e8;
+            --gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .page-header {
+            background: var(--gradient);
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 0 24px;
+            margin: -25px auto 40px;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        nav a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 18px 24px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            background: var(--card-bg);
+            border: 3px solid var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .timeline-card .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .timeline-card .position {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .timeline-card .date {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .timeline-card .institution {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .timeline-card .desc {
+            font-size: 14px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .timeline-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .timeline-card .tag {
+            background: rgba(201, 162, 39, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0;
+            }
+
+            nav a {
+                padding: 14px 16px;
+                font-size: 13px;
+            }
+
+            .timeline-card .header {
+                flex-direction: column;
+            }
+
+            .timeline-card .date {
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="container">
+            <h1>Experience</h1>
+            <p>Education and professional experience</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="experience.html" class="active">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="header">
+                            <span class="position">Faculty Member</span>
+                            <span class="date">Dec 2025 – Present</span>
+                        </div>
+                        <div class="institution">Tianjin Normal University, Department of Computer Science, College of Computer and Information Engineering</div>
+                        <div class="desc">Conducting research in natural language processing and artificial intelligence.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="header">
+                            <span class="position">Chief Engineer</span>
+                            <span class="date">Dec 2024 – Dec 2025</span>
+                        </div>
+                        <div class="institution">iFLYTEK Co., Ltd. · Higher Education Division</div>
+                        <div class="desc">Responsible for the R&D of AI-related products for higher education.</div>
+                        <div class="tags">
+                            <span class="tag">AI Applications</span>
+                            <span class="tag">Higher Education</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="header">
+                            <span class="position">NLP Algorithm Engineer</span>
+                            <span class="date">Jul 2023 – Dec 2025</span>
+                        </div>
+                        <div class="institution">iFLYTEK Research Institute · Recommendation and Advertising Team</div>
+                        <div class="desc">Research on large language model applications in recommendation and advertising systems.</div>
+                        <div class="tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Recommendation System</span>
+                            <span class="tag">LLM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="header">
+                            <span class="position">Postdoctoral Researcher</span>
+                            <span class="date">Jul 2023 – Sep 2025</span>
+                        </div>
+                        <div class="institution">iFLYTEK-HIT Joint Postdoctoral Research Station</div>
+                        <div class="desc">Advisors: Prof. Bing Qin, Prof. Ting Liu. Research on large language model applications in recommendation and advertising.</div>
+                        <div class="tags">
+                            <span class="tag">Knowledge Graph</span>
+                            <span class="tag">LLM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="header">
+                            <span class="position">Ph.D. in Computer Application Technology</span>
+                            <span class="date">Jun 2023</span>
+                        </div>
+                        <div class="institution">Harbin Institute of Technology (985, 211, Double First-Class)</div>
+                        <div class="desc">Advisor: Prof. Bing Qin. Thesis: "Multiparty Dialogue Discourse Parsing and Its Applications."</div>
+                        <div class="tags">
+                            <span class="tag">Discourse Parsing</span>
+                            <span class="tag">Dialogue Understanding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="header">
+                            <span class="position">Visiting Student</span>
+                            <span class="date">Mar 2019 – Mar 2020</span>
+                        </div>
+                        <div class="institution">National University of Singapore (QS Top 100)</div>
+                        <div class="desc">Advisor: Prof. Min-Yen Kan. Joint PhD training program sponsored by China Scholarship Council.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <div class="header">
+                            <span class="position">B.E. in Computer Science and Technology</span>
+                            <span class="date">Jun 2015</span>
+                        </div>
+                        <div class="institution">Heilongjiang University</div>
+                        <div class="desc">Academic Advisor: Prof. Guohong Fu.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Jiaqi Li · Tianjin Normal University</p>
+        </div>
+    </footer>
+</body>
+</html>

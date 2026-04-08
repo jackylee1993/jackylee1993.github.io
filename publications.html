@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Jiaqi Li</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #c9a227;
+            --accent-light: #e8c547;
+            --text: #2d2d2d;
+            --text-light: #5a5a5a;
+            --text-muted: #888;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --border: #e8e8e8;
+            --gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .page-header {
+            background: var(--gradient);
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 0 24px;
+            margin: -25px auto 40px;
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        nav a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 18px 24px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin: 30px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Publication Cards */
+        .pub-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .pub-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border-left-color: var(--accent);
+        }
+
+        .pub-card .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .pub-card .authors {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .pub-card .authors strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .pub-card .venue {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .pub-card .venue .tag {
+            background: var(--gradient);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .pub-card .venue .info {
+            color: var(--text-muted);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 30px;
+            padding: 24px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-item .label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0;
+            }
+
+            nav a {
+                padding: 14px 16px;
+                font-size: 13px;
+            }
+
+            .stats {
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div class="container">
+            <h1>Publications</h1>
+            <p>Selected research publications in NLP and AI</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html" class="active">Publications</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="number">11</div>
+                <div class="label">Publications</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">6</div>
+                <div class="label">Conference Papers</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">2</div>
+                <div class="label">Journal Papers</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">3</div>
+                <div class="label">Preprints</div>
+            </div>
+        </div>
+
+        <section>
+            <h2>All Publications</h2>
+
+            <h3>Conference Papers</h3>
+
+            <div class="pub-card">
+                <div class="title">Graph Reasoning Paradigm: Structured and Symbolic Reasoning with Topology-Aware Reinforcement Learning for Large Language Models</div>
+                <div class="authors">Runxuan Liu, Xianhao Ou, Xinyan Ma, Jiyuan Wang, Jiafeng Liang, <strong>Jiaqi Li</strong>, Tao He, Zheng Chu, Zekun Wang, Baoxin Wang, Dayong Wu, Ming Liu, Shijin Wang, Guoping Hu, Bing Qin</div>
+                <div class="venue">
+                    <span class="tag">ACL 2026</span>
+                    <span class="info">CCF-A · Co-corresponding author</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">CE-GOCD: Central Entity-Guided Graph Optimization and Community Detection for Augmenting LLM Scientific Question Answering</div>
+                <div class="authors">Jiayin Lan, <strong>Jiaqi Li</strong>, Baoxin Wang, Ming Liu, Dayong Wu, Shijin Wang, Bing Qin, Guoping Hu</div>
+                <div class="venue">
+                    <span class="tag">ICASSP 2026</span>
+                    <span class="info">CCF-B · Co-corresponding author</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">Ontology-Guided Reverse Thinking Makes Large Language Models Stronger on Knowledge Graph Question Answering</div>
+                <div class="authors">Runxuan Liu, Bei Luo, <strong>Jiaqi Li</strong>, Baoxin Wang, Ming Liu, Dayong Wu, Shijin Wang, Bing Qin</div>
+                <div class="venue">
+                    <span class="tag">ACL 2025</span>
+                    <span class="info">CCF-A · Co-corresponding author</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">SparkRA: A Retrieval-Augmented Knowledge Service System Based on Spark Large Language Model</div>
+                <div class="authors">Dayong Wu, <strong>Jiaqi Li</strong>, Baoxin Wang, Honghong Zhao, Siyuan Xue, Yanjie Yang, Zhijun Chang, Rui Zhang, Li Qian, Bo Wang, Shijin Wang, Zhixiong Zhang, Guoping Hu</div>
+                <div class="venue">
+                    <span class="tag">EMNLP 2024</span>
+                    <span class="info">Demo Track · CCF-B</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">DADgraph: A Discourse-aware Dialogue Graph Neural Network for Multiparty Dialogue Machine Reading Comprehension</div>
+                <div class="authors"><strong>Jiaqi Li</strong>, Ming Liu, Zihao Zheng, Heng Zhang, Bing Qin, Min-Yen Kan, Ting Liu</div>
+                <div class="venue">
+                    <span class="tag">IJCNN 2021</span>
+                    <span class="info">CCF-C</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">Molweni: A Challenge Multiparty Dialogues-based Machine Reading Comprehension Dataset with Discourse Structure</div>
+                <div class="authors"><strong>Jiaqi Li</strong>, Ming Liu, Min-Yen Kan, Zihao Zheng, Zekun Wang, Wenqiang Lei, Ting Liu, Bing Qin</div>
+                <div class="venue">
+                    <span class="tag">COLING 2020</span>
+                    <span class="info">CCF-B</span>
+                </div>
+            </div>
+
+            <h3>Journal Papers</h3>
+
+            <div class="pub-card">
+                <div class="title">A Speaker-aware Multiparty Dialogue Discourse Parser with Heterogeneous Graph Neural Network</div>
+                <div class="authors"><strong>Jiaqi Li</strong>, Ming Liu, Yuxin Wang, Daxing Zhang, Bing Qin</div>
+                <div class="venue">
+                    <span class="tag">Cognitive Systems Research</span>
+                    <span class="info">2023 · JCR-Q2 · SCI</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">A Survey of Discourse Parsing</div>
+                <div class="authors"><strong>Jiaqi Li</strong>, Ming Liu, Bing Qin, Ting Liu</div>
+                <div class="venue">
+                    <span class="tag">Frontiers of Computer Science</span>
+                    <span class="info">2022 · CCF-B · JCR-Q1</span>
+                </div>
+            </div>
+
+            <h3>Preprints</h3>
+
+            <div class="pub-card">
+                <div class="title">NLP-AKG: Few-Shot Construction of NLP Academic Knowledge Graph</div>
+                <div class="authors">Jiayin Lan, <strong>Jiaqi Li</strong>, Baoxin Wang, Ming Liu, Dayong Wu, Shijin Wang, Bing Qin</div>
+                <div class="venue">
+                    <span class="tag">arXiv</span>
+                    <span class="info">2025</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">Multiparty Dialogue Discourse Parsing with Adapters</div>
+                <div class="authors"><strong>Jiaqi Li</strong>, Yuxin Wang, Zerui Chen, Ming Liu, Bing Qin</div>
+                <div class="venue">
+                    <span class="tag">arXiv</span>
+                    <span class="info">2023</span>
+                </div>
+            </div>
+
+            <div class="pub-card">
+                <div class="title">An Annotation Scheme of A Large-scale Multi-party Dialogues Dataset for Discourse Parsing and Machine Comprehension</div>
+                <div class="authors"><strong>Jiaqi Li</strong>, Ming Liu, Bing Qin, Zihao Zheng, Ting Liu</div>
+                <div class="venue">
+                    <span class="tag">arXiv</span>
+                    <span class="info">2019</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Jiaqi Li · Tianjin Normal University</p>
+        </div>
+    </footer>
+</body>
+</html>
